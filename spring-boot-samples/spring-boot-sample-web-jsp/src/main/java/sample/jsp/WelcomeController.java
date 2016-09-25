@@ -49,9 +49,17 @@ public class WelcomeController{
 	private String message = "Hello!... Welcome my Lord ";
 
 	@GetMapping("/")
-	public String welcome(Map<String, Object> model) {
+	public String welcome(Map<String, Object> model, ServletRequest req) {
 		model.put("time", new Date());
 		model.put("message", this.message);
+		
+		String name = req.getParameter("name") != null ? req.getParameter("name") : "";
+		
+		
+		System.out.println("my name is: "+name);
+		
+		model.put("name", name);
+		
 		return "welcome";
 	}
 	

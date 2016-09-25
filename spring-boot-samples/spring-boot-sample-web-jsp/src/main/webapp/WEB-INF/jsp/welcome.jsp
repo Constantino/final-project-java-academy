@@ -7,7 +7,7 @@
 
 <body>
 	
-	${message} <%= request.getParameter("name") %>!
+	Welcome my Lord ${name}!
 </body>
 
 </html>
