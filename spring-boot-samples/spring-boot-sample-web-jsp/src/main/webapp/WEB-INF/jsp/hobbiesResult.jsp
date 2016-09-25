@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	Your hobbies: <br/>
+	<%= request.getParameter("username") %>, your hobbies are: <br/>
 
 	<%= request.getParameter("UserHobbies") %>
 	<br/>

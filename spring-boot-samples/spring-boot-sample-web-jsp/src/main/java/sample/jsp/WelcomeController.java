@@ -56,6 +56,7 @@ public class WelcomeController{
 	
 	@PostMapping("/hobbiesResult")
 	public String hobbiesSubmit(ServletRequest req) {
+		System.out.println("UserName: "+req.getParameter("username"));
 		System.out.println("UserHobbies: "+req.getParameter("UserHobbies"));
 		return "hobbiesResult";
 	}
