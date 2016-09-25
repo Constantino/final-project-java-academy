@@ -16,10 +16,18 @@
 
 package sample.jsp;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +36,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WelcomeController {
+public class WelcomeController{
 
 	
 	private String message = "Hello!... Welcome my Lord ";
@@ -45,12 +53,14 @@ public class WelcomeController {
         model.addAttribute("hobby", new Hobby());
         return "hobbies";
     }
-
+	
 	@PostMapping("/hobbiesResult")
-	public String hobbiesSubmit(Model model) {
-		
+	public String hobbiesSubmit(ServletRequest req) {
+		System.out.println("UserHobbies: "+req.getParameter("UserHobbies"));
 		return "hobbiesResult";
 	}
+	
+
 	
 	@RequestMapping("/foo")
 	public String foo(Map<String, Object> model) {
