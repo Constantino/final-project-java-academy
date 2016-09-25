@@ -16,7 +16,10 @@
 
 package sample.jsp;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Map;
 
@@ -56,13 +59,35 @@ public class WelcomeController{
 	
 	@PostMapping("/hobbiesResult")
 	public String hobbiesSubmit(ServletRequest req) {
-		System.out.println("UserName: "+req.getParameter("username"));
-		System.out.println("UserHobbies: "+req.getParameter("UserHobbies"));
+		
+		String filePath = new File("").getAbsolutePath();
+		
+		PrintWriter writer = null;
+		
+		try {
+			
+			writer = new PrintWriter(new FileWriter(filePath+"/HobbiesStored.dat",true));
+
+			String username = req.getParameter("username");
+			String userHobbies = req.getParameter("UserHobbies");
+			
+			System.out.println("UserName: "+username);
+			System.out.println("UserHobbies: "+userHobbies);
+			
+			writer.println(username+":"+userHobbies+"\n");
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			if(writer != null){
+				writer.close();
+			}
+		}
+		
 		return "hobbiesResult";
 	}
-	
 
-	
 	@RequestMapping("/foo")
 	public String foo(Map<String, Object> model) {
 		throw new RuntimeException("Foo");
