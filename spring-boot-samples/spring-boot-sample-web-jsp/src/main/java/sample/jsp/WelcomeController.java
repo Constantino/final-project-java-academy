@@ -21,7 +21,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -36,7 +39,19 @@ public class WelcomeController {
 		model.put("message", this.message);
 		return "welcome";
 	}
+	
+	@GetMapping("/hobbies")
+    public String greetingForm(Model model) {
+        model.addAttribute("hobby", new Hobby());
+        return "hobbies";
+    }
 
+	@PostMapping("/hobbiesResult")
+	public String hobbiesSubmit(Model model) {
+		
+		return "hobbiesResult";
+	}
+	
 	@RequestMapping("/foo")
 	public String foo(Map<String, Object> model) {
 		throw new RuntimeException("Foo");
