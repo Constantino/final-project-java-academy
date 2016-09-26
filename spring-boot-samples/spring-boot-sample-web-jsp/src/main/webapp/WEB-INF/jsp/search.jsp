@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<a href="/hobbies">Save hobbies</a>
+	<a href="hobbies">Save hobbies</a>
 	<br/>
 	User:Hobbies list <br/>
 	

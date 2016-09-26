@@ -9,8 +9,8 @@
 
 	<%= request.getParameter("UserHobbies") %>
 	<br/>
-	<a href="/hobbies">Save hobbies</a>
-	<a href="/search">Search user hobbies</a>
+	<a href="hobbies">Save hobbies</a>
+	<a href="search">Search user hobbies</a>
 </body>
 
 </html>

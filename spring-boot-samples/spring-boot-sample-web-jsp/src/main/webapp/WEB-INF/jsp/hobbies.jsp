@@ -6,7 +6,7 @@
 </head>
 <body>
 	Hobbies:<br/>
-	<form action = "/hobbiesResult" method="POST">
+	<form action = "hobbiesResult" method="POST">
 		<input type="text" placeholder="username" name="username"><br/>
 		<textarea rows="4" cols="50" name="UserHobbies" placeholder="Enter your hobbies here..."></textarea>
 		<br/>

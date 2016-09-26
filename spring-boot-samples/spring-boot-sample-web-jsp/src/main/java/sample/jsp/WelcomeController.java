@@ -63,13 +63,13 @@ public class WelcomeController{
 		return "welcome";
 	}
 	
-	@GetMapping("/hobbies")
+	@GetMapping("hobbies")
     public String greetingForm(Model model) {
         model.addAttribute("hobby", new Hobby());
         return "hobbies";
     }
 	
-	@GetMapping("/search")
+	@GetMapping("search")
     public String search(Model model) {
         
 		FileReader reader = null;
@@ -118,7 +118,7 @@ public class WelcomeController{
         return "search";
     }
 	
-	@PostMapping("/hobbiesResult")
+	@PostMapping("hobbiesResult")
 	public String hobbiesSubmit(ServletRequest req) {
 		
 		String filePath = new File("").getAbsolutePath();
@@ -149,7 +149,7 @@ public class WelcomeController{
 		return "hobbiesResult";
 	}
 
-	@RequestMapping("/foo")
+	@RequestMapping("foo")
 	public String foo(Map<String, Object> model) {
 		throw new RuntimeException("Foo");
 	}
